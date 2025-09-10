@@ -14,9 +14,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->where('any', '^.(?!api).*$');
+    return view('home');
+});
 
 Route::get('/about', function () {
-    return '<h1>About Page</h1><p>This is the About page!</p>';
+    return view('about');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+// Add these routes if you want authentication features later 
+// walay labot para sa nxt update pani wow sanaol popop dol
+
+Route::get('/login', function() {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
+
+Route::post('/logout', function() {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
