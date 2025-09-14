@@ -13,31 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any', '.*');
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-
-// Add these routes if you want authentication features later 
-// walay labot para sa nxt update pani wow sanaol popop dol
-
-Route::get('/login', function() {
-    return view('auth.login');
-})->name('login');
-
-Route::get('/register', function() {
-    return view('auth.register');
-})->name('register');
-
-Route::post('/logout', function() {
-    Auth::logout();
-    return redirect('/');
-})->name('logout');
+//sa Admin Login Route
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');

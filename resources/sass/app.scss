@@ -1,8 +1,15 @@
+// filepath: hinayon-imo/resources/sass/app.scss
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import '_variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import './home.scss';
+@import './aboutus.scss';
+@import './contactus.scss';
+@import './navbar.scss';
+@import './login.scss';
