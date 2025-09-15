@@ -1,21 +1,32 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Example from "./Example";
-import Home from "./Home";       
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from "./Home";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import Login from "./Login";
+import AdminDashboard from "./AdminDashboard";
+import Navbar from "./Navbar";
 
 export default function Routers() {
     return (
         <Router>
-            <Routes>
-                <Route path="/Example" element={<Example />} />
-                <Route path="/Home" element={<Home />} />
-            </Routes>
+            <Navbar />
+            <div className="page-content">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/aboutus" element={<AboutUs />} />
+                    <Route path="/contactus" element={<ContactUs />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                </Routes>
+            </div>
         </Router>
     );
 }
 
-if(document.getElementById("app")){
-    ReactDom.render(<Routers/>, document.getElementById("app"));
+if (document.getElementById('root')) {
+    ReactDOM.render(<Routers />, document.getElementById('root')); 
 }
